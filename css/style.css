@@ -8,6 +8,16 @@
 ::-webkit-scrollbar {
     display: none;
 }
+/*display -> grid */
+:is(body, ) {
+    display: grid;
+}
+
+/*number of rows*/
+body{
+    grid-template-rows: auto minmax(100%, 100dvh) auto;
+}
+
 /*navbar*/
 .navbar{
 
@@ -24,6 +34,6 @@ img {
     ;
 }
 /*text-align: center*/
-:is(h2){
+:is(h2, footer p){
     text-align: center;
 }
