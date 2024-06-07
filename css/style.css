@@ -32,6 +32,7 @@ img {
     object-fit: cover;
     object-position: center
     ;
+    width: 20rem;
 }
 /*text-align: center*/
 :is(h2, footer p){

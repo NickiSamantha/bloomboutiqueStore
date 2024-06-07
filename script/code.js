@@ -1,4 +1,5 @@
 //create products and store it on the local storage
+
 let products = JSON.parse(localStorage.getItem("products")) ||
   // ? JSON.parse(localStorage.getItem("products"))
   
@@ -50,11 +51,16 @@ let products = JSON.parse(localStorage.getItem("products")) ||
             "https://nickisamantha.github.io/allImages/images/nickiflex.png",
         },
       ]
+
       localStorage.setItem("product", JSON.stringify(products))
 
+      //Current Year 
+      document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
+
       function recentProducts() {
-        let arrSize = products.length
-        let latestProducts = products.slice(0, arrSize >> 1)
+        try {
+          let arrSize = products.length
+        let latestProducts = products.reverse().slice(0, arrSize >> 1)
         let wrapper = document.querySelector('[recentProducts]');
         
         latestProducts.forEach(product => {
@@ -70,6 +76,30 @@ let products = JSON.parse(localStorage.getItem("products")) ||
 </div>
         `;
         });
+        } catch (e) {
+          wrapper.textContent = "Please contact our administrator."
+          setTimeout(()=> {
+            location.reload()
+          },
+        2000
+      )
+        }
+        
       }
       recentProducts()
+
+      //current year 
+      
+      // function recentProducts() {
+      //   try {
+      //     let arrSize = product.length
+      //     let latestProducts = products.reverse().slice(0, arrSize >> 1)
+      //     latestProducts.forEach(prosuct => {
+      //       wrapper.innerHTML +=`
+      //       <div class="card">
+      //
+      //       </div>`
+      //     })
+      //   }
+      // }
     
